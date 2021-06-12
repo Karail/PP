@@ -11,15 +11,16 @@ import {
 import { useParams } from "react-router";
 
 export const AccountingInfo = ({ list }) => {
-  console.log(list);
+
   const { id } = useParams()
 
   const acc = list.map(e => {
-    if(e.teachers._id === id){
+
+    if(e?.teachers?._id === id){
       return e
     }
   }).filter(e => e !== undefined)
-  
+
   return (
     <React.Fragment>
       <h1>Информация о нагрузке для {acc?.[0]?.teachers?.patronymic} {acc?.[0]?.teachers?.name} {acc?.[0]?.teachers?.surname}</h1>

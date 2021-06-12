@@ -86,8 +86,13 @@ export const AddConnectionForm = ({ teachers, disciplines, groups, get }) => {
                 onChange={(e) => {
                   console.log(e.target.value)
                   setFieldValue('discipline', e.target.value)
-                  setFieldValue('lecturesWatch', e.target.value.watch || 0)
-                  setFieldValue('practicesWatch', e.target.value.watch || 0)
+                  setFieldValue('lecturesWatch', e.target.value.lecturesWatch || 0)
+                  setFieldValue('practicesWatch', e.target.value.practicesWatch || 0)
+                  setFieldValue('laboratoryWatch', e.target.value.laboratoryWatch || 0)
+                  setFieldValue('seminarsWatch', e.target.value.seminarsWatch || 0)
+                  setFieldValue('courseProjectsWatch', e.target.value.courseProjectsWatch || 0)
+                  setFieldValue('intermediateСertificationWatch', e.target.value.intermediateСertificationWatch || 0)
+                  setFieldValue('individualProjectWatch', e.target.value.individualProjectWatch || 0)
                 }}
                 error={touched.discipline && Boolean(errors.discipline)}
                 helperText={touched.discipline && errors.discipline}
