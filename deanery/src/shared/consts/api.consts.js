@@ -1,0 +1,1 @@
+export const backHost = 'https://pp-app-back.herokuapp.com'
