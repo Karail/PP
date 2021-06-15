@@ -9,7 +9,7 @@ import {TableItem} from "../components/table-item/TableItem";
 import axios from "axios";
 import {backHost} from "../shared/consts/api.consts";
 
-export const AccountingInfo = ({ list }) => {
+export const AccountingInfo = ({ list, delItem, get }) => {
 
   useEffect(() => {
     setAMass(acc)
@@ -68,38 +68,64 @@ export const AccountingInfo = ({ list }) => {
           }
           setEdit(!edit)
       }}>{edit? "Сохранить" : 'Изменить'}</Button></h1>
-      <Paper square={true} className={'table-wrapper'}>
-        <Grid style={{
-          alignItems: 'center'
-        }} container justify='space-between'>
-        <TableItem width={80} value={'Индекс'} edit={false}/>
-          <TableItem width={150} value={'Название дисциплины'} edit={false}/>
-          <TableItem width={60} value={'Лекции'} edit={false}/>
-          <TableItem width={60} value={'Практики'} edit={false}/>
-          <TableItem width={90} value={'Лабораторные'} edit={false}/>
-          <TableItem width={60} value={'Семинары'} edit={false}/>
-          <TableItem width={60} value={'Курс. проекты'} edit={false}/>
-          <TableItem width={60} value={'Промежут. аттестация'} edit={false}/>
-          <TableItem width={60} value={'Индивид. проекты'} edit={false}/>
+        <Grid xs={10}>
+            <Paper square={true} className={'table-wrapper'}>
+                <Grid style={{
+                    alignItems: 'center'
+                }} container justify='space-between'>
+                    <TableItem width={80} value={'Индекс'} edit={false}/>
+                    <TableItem width={150} value={'Название дисциплины'} edit={false}/>
+                    <TableItem width={60} value={'Лекции'} edit={false}/>
+                    <TableItem width={60} value={'Практики'} edit={false}/>
+                    <TableItem width={90} value={'Лабораторные'} edit={false}/>
+                    <TableItem width={60} value={'Семинары'} edit={false}/>
+                    <TableItem width={60} value={'Курс. проекты'} edit={false}/>
+                    <TableItem width={60} value={'Промежут. аттестация'} edit={false}/>
+                    <TableItem width={60} value={'Индивид. проекты'} edit={false}/>
+                </Grid>
+            </Paper>
         </Grid>
-      </Paper>
+
       {aMass.map((el, index) => {
         return (
-            <Paper square={true} className={'table-wrapper'}>
-              <Grid style={{
-                alignItems: 'center'
-              }} container justify='space-between'>
-                <TableItem onChange={(value) => editValue(index, 'index', value)} width={80} value={el?.disciplines?.index} edit={false}/>
-                <TableItem onChange={(value) => editValue(index, 'name', value)} width={150} value={el?.disciplines?.name} edit={false}/>
-                <TableItem onChange={(value) => editValue(index, 'lecturesWatch', value)} width={60} value={el?.disciplines?.lecturesWatch} edit={edit}/>
-                <TableItem onChange={(value) => editValue(index, 'practicesWatch', value)} width={60} value={el?.disciplines?.practicesWatch} edit={edit}/>
-                <TableItem onChange={(value) => editValue(index, 'laboratoryWatch', value)} width={90} value={el?.disciplines?.laboratoryWatch} edit={edit}/>
-                <TableItem onChange={(value) => editValue(index, 'seminarsWatch', value)} width={60} value={el?.disciplines?.seminarsWatch} edit={edit}/>
-                <TableItem onChange={(value) => editValue(index, 'courseProjectsWatch', value)} width={60} value={el?.disciplines?.courseProjectsWatch} edit={edit}/>
-                <TableItem onChange={(value) => editValue(index, 'intermediateСertificationWatch', value)} width={60} value={el?.disciplines?.intermediateСertificationWatch} edit={edit}/>
-                <TableItem onChange={(value) => editValue(index, 'individualProjectWatch', value)} width={60} value={el?.disciplines?.individualProjectWatch} edit={edit}/>
-              </Grid>
-            </Paper>
+            <Grid alignItems="center"  container justify='space-between'>
+                <Grid xs={10}>
+                    <Paper square={true} className={'table-wrapper'}>
+                        <Grid style={{
+                            alignItems: 'center'
+                        }} container justify='space-between'>
+                            <TableItem onChange={(value) => editValue(index, 'index', value)} width={80} value={el?.disciplines?.index} edit={false}/>
+                            <TableItem onChange={(value) => editValue(index, 'name', value)} width={150} value={el?.disciplines?.name} edit={false}/>
+                            <TableItem onChange={(value) => editValue(index, 'lecturesWatch', value)} width={60} value={el?.disciplines?.lecturesWatch} edit={edit}/>
+                            <TableItem onChange={(value) => editValue(index, 'practicesWatch', value)} width={60} value={el?.disciplines?.practicesWatch} edit={edit}/>
+                            <TableItem onChange={(value) => editValue(index, 'laboratoryWatch', value)} width={90} value={el?.disciplines?.laboratoryWatch} edit={edit}/>
+                            <TableItem onChange={(value) => editValue(index, 'seminarsWatch', value)} width={60} value={el?.disciplines?.seminarsWatch} edit={edit}/>
+                            <TableItem onChange={(value) => editValue(index, 'courseProjectsWatch', value)} width={60} value={el?.disciplines?.courseProjectsWatch} edit={edit}/>
+                            <TableItem onChange={(value) => editValue(index, 'intermediateСertificationWatch', value)} width={60} value={el?.disciplines?.intermediateСertificationWatch} edit={edit}/>
+                            <TableItem onChange={(value) => editValue(index, 'individualProjectWatch', value)} width={60} value={el?.disciplines?.individualProjectWatch} edit={edit}/>
+                        </Grid>
+                    </Paper>
+                </Grid>
+
+                <Grid xs={2}>
+                    <Button style={
+                        {
+                            marginLeft: 10
+                        }
+                    } variant="outlined" color="primary" onClick={(event) => {
+                        event.stopPropagation()
+                        delItem(el._id).then(() => {
+                            get()
+                            alert("Удалено.")
+                        })
+
+                    }}>
+                        Удалить
+                    </Button>
+                </Grid>
+
+            </Grid>
+
         )
       })}
       {/*<TableContainer component={Paper}>*/}

@@ -126,14 +126,7 @@ export const Routers = () => {
               path="/disc-list"
             />
             <Route
-              component={ItemsListAcc(
-                "Учет",
-                connections,
-                "/accounting-info",
-                "/accounting-add",
-                delConnections,
-                get
-              )}
+                render={() => <ItemsListAcc title={"Учет"} items={connections} path={ "/accounting-info"} addPath={   "/accounting-add"} delItem={delConnections} get={get}/>}
               exact
               path="/accounting-list"
             />
@@ -177,7 +170,7 @@ export const Routers = () => {
               path="/add-group"
             />
             <Route
-              render={() => <AccountingInfo list={connections} />}
+              render={() => <AccountingInfo list={connections} delItem={delConnections} get={get} />}
               exact
               path="/accounting-info/:id"
             />

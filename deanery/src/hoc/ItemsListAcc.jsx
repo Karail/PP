@@ -1,16 +1,20 @@
 import React from "react";
 import { Button, Grid, Paper } from "@material-ui/core";
 import { NavLink } from "react-router-dom";
+import {useHistory} from "react-router";
 
-export const ItemsListAcc = (title, items, path, addPath, delItem, get) => {
+export const ItemsListAcc = ({title, items, path, addPath, delItem, get}) => {
 
   const acc = {}
+
+  const history = useHistory();
 
   items.forEach(e => {
     if (!acc[e?.teachers?._id]) {
       acc[e?.teachers?._id] = e?.teachers
     }
   });
+
 
     return (
       <div>
@@ -23,26 +27,14 @@ export const ItemsListAcc = (title, items, path, addPath, delItem, get) => {
           </NavLink>
         </Grid>
 
-        {Object.values(acc).map((e) => {
+        {Object.values(acc).map((e, index) => {
           console.log(e);
           return (
-            <NavLink className="link" to={`${path+'/'+e?._id}`} exact>
-              <Paper className="list-item">
+              <Paper onClick={() => { history.push(`${path + '/' + e._id}`)  }} className="list-item">
                 <Grid container  alignItems="center" justify="space-between">
                   <p>{e?.patronymic} {e?.name} {e?.surname}</p>
-                  <Button variant="outlined" color="primary" onClick={(event) => {
-                    event.stopPropagation()
-                    delItem(e._id).then(() => {
-                      get()
-                      alert("Удалено.")
-                    })
-
-                  }}>
-                    Удалить
-                  </Button>
                 </Grid>
               </Paper>
-            </NavLink>
           );
         })}
       </div>
