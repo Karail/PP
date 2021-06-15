@@ -12,7 +12,6 @@ export const ItemsListAcc = (title, items, path, addPath, delItem, get) => {
     }
   });
 
-  return () => {
     return (
       <div>
         <Grid alignItems="center" container justify="space-between">
@@ -28,11 +27,24 @@ export const ItemsListAcc = (title, items, path, addPath, delItem, get) => {
           console.log(e);
           return (
             <NavLink className="link" to={`${path+'/'+e?._id}`} exact>
-              <Paper className="list-item">{e?.patronymic} {e?.name} {e?.surname}</Paper>
+              <Paper className="list-item">
+                <Grid container  alignItems="center" container justify="space-between">
+                  <p>{e?.patronymic} {e?.name} {e?.surname}</p>
+                  <Button variant="outlined" color="primary" onClick={(event) => {
+                    event.stopPropagation()
+                    delItem(e._id).then(() => {
+                      get()
+                      alert("Удалено.")
+                    })
+
+                  }}>
+                    Удалить
+                  </Button>
+                </Grid>
+              </Paper>
             </NavLink>
           );
         })}
       </div>
     );
-  };
 };

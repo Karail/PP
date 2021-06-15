@@ -62,6 +62,7 @@ export const Routers = () => {
     return axios.delete(`${backHost}/teacher-discipline-group/delete/${id}`);
   }
 
+
   useEffect(() => {
     get();
   }, []);

@@ -22,23 +22,30 @@ export const ItemsList = ({ title, items, path, addPath, delItem, get, editPath 
       {items?.map((e) => {
         return (
           <div className="link" onClick={() => { history.push(`${path + '/' + e._id}`)  }}>
-            <Paper className="list-item">{e.name}
-              <Button variant="outlined" color="primary" onClick={(event) => {
-                event.stopPropagation()
-                delItem(e._id).then(() => {
-                  get()
-                  alert("Удалено.")
-                })
+            <Paper className="list-item">
+              <Grid alignItems="center" container justify="space-between">
+                <p>     {e.name}</p>
+                <Grid container justify="space-between" xs={3}>
+                  <Button variant="outlined" color="primary" onClick={(event) => {
+                    event.stopPropagation()
+                    delItem(e._id).then(() => {
+                      get()
+                      alert("Удалено.")
+                    })
 
-              }}>
-                Удалить
-            </Button>
-              <Button style={{zIndex: 999}} variant="outlined" color="primary" onClick={(event) => {
-                event.stopPropagation()
-                history.push(`${editPath + '/' + e._id}`)
-              }}>
-                <b>Изменить</b>
-              </Button>
+                  }}>
+                    Удалить
+                  </Button>
+                  <Button style={{zIndex: 999}} variant="outlined" color="primary" onClick={(event) => {
+                    event.stopPropagation()
+                    history.push(`${editPath + '/' + e._id}`)
+                  }}>
+                    <b>Изменить</b>
+                  </Button>
+                </Grid>
+              </Grid>
+
+
             </Paper>
           </div>
         );
