@@ -20,6 +20,7 @@ import { EditDisciplineForm } from "../components/edit/edit-discipline/EditDisci
 import { EditGroupForm } from "../components/edit/edit-group/EditGroupForm";
 import { EditSpecializationForm } from "../components/edit/edit-specialization/EditSpecializationForm";
 import { EditTeacherForm } from "../components/edit/edit-teacher/EditTeacherForm";
+import {TeachList} from "../hoc/TeachList";
 
 export const Routers = () => {
   const [teachers, setTeachers] = useState([]);
@@ -74,7 +75,7 @@ export const Routers = () => {
         <Grid xs={7}>
           <Switch>
             <Route
-              render={() => <ItemsList
+              render={() => <TeachList
                 title={"Список преподавателей"}
                 items={teachers}
                 path={"/teacher-info"}
