@@ -28,7 +28,7 @@ export const ItemsListAcc = (title, items, path, addPath, delItem, get) => {
           return (
             <NavLink className="link" to={`${path+'/'+e?._id}`} exact>
               <Paper className="list-item">
-                <Grid container  alignItems="center" container justify="space-between">
+                <Grid container  alignItems="center" justify="space-between">
                   <p>{e?.patronymic} {e?.name} {e?.surname}</p>
                   <Button variant="outlined" color="primary" onClick={(event) => {
                     event.stopPropagation()
