@@ -13,6 +13,8 @@ const TeacherDisciplineGroupSchema = new mongoose_1.Schema({
     courseProjectsWatch: Number,
     intermediateСertificationWatch: Number,
     individualProjectWatch: Number,
+    subgroups: Number,
+    isStream: Boolean,
 });
 exports.TeacherDisciplineGroup = mongoose_1.model('TeacherDisciplineGroup', TeacherDisciplineGroupSchema);
 //# sourceMappingURL=teacher-discipline-group.schema.js.map

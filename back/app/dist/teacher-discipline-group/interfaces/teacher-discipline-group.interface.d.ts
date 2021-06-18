@@ -10,4 +10,6 @@ export interface ITeacherDisciplineGroup {
     courseProjectsWatch: number;
     intermediateСertificationWatch: number;
     individualProjectWatch: number;
+    subgroups: number;
+    isStream: boolean;
 }

@@ -3,6 +3,4 @@ export class GroupCreateDto {
     index: string;
     course: number;
     quantity: number;
-    subgroups: number;
-    isStream: boolean;
 }

@@ -13,6 +13,8 @@ const TeacherDisciplineGroupSchema = new Schema ({
   courseProjectsWatch: Number,
   intermediateСertificationWatch: Number,
   individualProjectWatch: Number,
+  subgroups: Number,
+  isStream: Boolean,
 });
 
 export const TeacherDisciplineGroup = model<ITeacherDisciplineGroup & Document>('TeacherDisciplineGroup', TeacherDisciplineGroupSchema);

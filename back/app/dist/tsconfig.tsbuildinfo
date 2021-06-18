@@ -562,13 +562,13 @@
         "affectsGlobalScope": false
       },
       "../src/teacher-discipline-group/dto/teacher-discipline-group-create.dto.ts": {
-        "version": "1522240c40912bdee42670f155baaa131e0b98beffe50e9352f23afb453202aa",
-        "signature": "ee28541fc93669aad2332cdcae9a23129fc4fe1d863d330189212ea85a30bbf1",
+        "version": "fdd5249017b7e963eebe718e2a464d00babd365d1abbf0d75938a531c32bbfd0",
+        "signature": "908c0d1004436b77a4c838a1f8ba612be8e1965a41a0ed1cb80b5e8ac2ddfca9",
         "affectsGlobalScope": false
       },
       "../src/teacher-discipline-group/dto/teacher-discipline-group-edit.dto.ts": {
-        "version": "90bc51570c071ffb38e84adf18d3364ca46a78499155a3704467bfa8a3f05413",
-        "signature": "24fd138dd923f50f848daabc7c3cf6dd9f02e28e2a95dbe4b7e3f313db62d4db",
+        "version": "9188acdde694174531d45e4bc6d65e9fbd1e0782699c3f1ea74ce681deb7f76d",
+        "signature": "7ea721f8f2e8f1f328760cab1d8968845852aa557e76e1f2313a243a8cb90349",
         "affectsGlobalScope": false
       },
       "../src/teacher-discipline-group/dto/index.ts": {
@@ -577,8 +577,8 @@
         "affectsGlobalScope": false
       },
       "../src/teacher-discipline-group/interfaces/teacher-discipline-group.interface.ts": {
-        "version": "cd443e2dc594e855a0f0e0834213e2799560865dd19ed3f4ec974205d01b040f",
-        "signature": "0659d16003d2129123051102209230658cb10531cf6686519ea514693eb6aa22",
+        "version": "c80e12501fdf4e425d77309dccde85a9acd91af0710240a66ce4262e8a67a9bb",
+        "signature": "fb8d19e9319925ff84b1c5d6a5b012566b1657fd1657dadaa0572069f00671d6",
         "affectsGlobalScope": false
       },
       "../src/teacher-discipline-group/interfaces/index.ts": {
@@ -587,7 +587,7 @@
         "affectsGlobalScope": false
       },
       "../src/teacher-discipline-group/schemas/teacher-discipline-group.schema.ts": {
-        "version": "d6776233af6dd2c823e127d7e0aa035538cfc98fb87037686cf1962c1aa5f0df",
+        "version": "a986e14b1bb856a9574824f0ec44212759ba8cfb71abde4aab1020c952d2f6ea",
         "signature": "7d73f0804612af9a2cfdd48c5d47742352ee21e562dd4cb4e1ec63f799424e9a",
         "affectsGlobalScope": false
       },
@@ -637,8 +637,8 @@
         "affectsGlobalScope": false
       },
       "../src/groups/interfaces/groups.interface.ts": {
-        "version": "855656762faf4bf155ee3c4fde9446966110755fb972df63588bae25422f2ec0",
-        "signature": "fbeb6e1c060f2ae872f00c5abc8408a8cf144178cd8802241dc53edd5f9673cd",
+        "version": "e99a01e3d7d3f7d87d16f209d8b9f7e401268e420be844f5257e53e791d45884",
+        "signature": "4876feb44d7e9d9bd3d9b9349496a3cd87a313715ad8f40b00cec52020b294e8",
         "affectsGlobalScope": false
       },
       "../src/groups/interfaces/index.ts": {
@@ -647,7 +647,7 @@
         "affectsGlobalScope": false
       },
       "../src/groups/schemas/groups.schema.ts": {
-        "version": "88365002c016768061119b7faf62e9e27c930fb9baa1a244d9424ab8ce41e1ae",
+        "version": "b52b82bf6a4c3aa728450f81a5a212d84c7c09be98e0a34957398891d2a01338",
         "signature": "9c433ab04fb48276b376a0a78bdd869e471ecb4506ba0afcb30456c04cfab970",
         "affectsGlobalScope": false
       },
@@ -657,7 +657,7 @@
         "affectsGlobalScope": false
       },
       "../src/teacher-discipline-group/controllers/teacher-discipline-group.controller.ts": {
-        "version": "2bb17f3aa2c79e0bedcb97d90c682f2ad51218bf21d0cdb27bf55cf1f030afdb",
+        "version": "c1c088a813528a323a258fdc046e7aa9969b00b8eda1bf98817140f0b931a6ce",
         "signature": "f3f080295e351e418cdf5faeaf87f2b9f18e96ea870e13251b24366768991dbf",
         "affectsGlobalScope": false
       },
@@ -767,8 +767,8 @@
         "affectsGlobalScope": false
       },
       "../src/groups/dto/groups-create.dto.ts": {
-        "version": "c4be208c1e42dafe12fcf2c15757edf459021ecdd1c4d81fe4aa5e8022f201bc",
-        "signature": "5d6696449c87a6419cd8343c478bb810d855c244d2ca7fd7ae22798372e07642",
+        "version": "67a91df6783b3467acb9acbd611f96a268f8d5395d0d956af2b816868581e3b0",
+        "signature": "850828b3595a0bbb68d7e0ea6a003955cd58907bfabc4e7de7b62159caea64b7",
         "affectsGlobalScope": false
       },
       "../src/groups/dto/index.ts": {
@@ -777,7 +777,7 @@
         "affectsGlobalScope": false
       },
       "../src/groups/controllers/groups.controller.ts": {
-        "version": "cfbfafb113e505ad62a905b97ef44a3c9c348da1541e5f776cc602e2892c6803",
+        "version": "b33566c8c4eaa524c1fa427ed1c4c5e431e49624a21ac36e6025b4cd0f6bdb43",
         "signature": "81824afb604f5123661b1f9a7430f3c56ad1424f5d83065156225d49c6eafc54",
         "affectsGlobalScope": false
       },

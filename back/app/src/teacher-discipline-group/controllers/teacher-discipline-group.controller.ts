@@ -35,8 +35,20 @@ class TeacherDisciplineGroupController {
 				const groups = await this.groupModel.findById(item.groupId).lean();
 
 				data.push({
+					_id: item._id,
 					teachers,
-					disciplines,
+					disciplines: {
+						...disciplines,
+						lecturesWatch: item.lecturesWatch, 
+						practicesWatch: item.practicesWatch, 
+						laboratoryWatch: item.laboratoryWatch, 
+						seminarsWatch: item.seminarsWatch, 
+						courseProjectsWatch: item.courseProjectsWatch, 
+						intermediateСertificationWatch: item.intermediateСertificationWatch, 
+						individualProjectWatch: item.individualProjectWatch,
+						subgroups: item.subgroups,
+						isStream: item.isStream
+					},
 					groups
 				})
 			}
@@ -60,7 +72,9 @@ class TeacherDisciplineGroupController {
 					seminarsWatch,
 					courseProjectsWatch,
 					intermediateСertificationWatch,
-					individualProjectWatch } = req.body as TeacherDisciplineGroupCreateDto;
+					individualProjectWatch,
+					subgroups,
+					isStream } = req.body as TeacherDisciplineGroupCreateDto;
 			
 			const teachers = await this.teacherModel.findById(teacherId).lean();
 			const disciplines = await this.disciplineModel.findById(disciplineId).lean();
@@ -80,7 +94,9 @@ class TeacherDisciplineGroupController {
 				seminarsWatch,
 				courseProjectsWatch,
 				intermediateСertificationWatch,
-				individualProjectWatch 
+				individualProjectWatch,
+				subgroups,
+				isStream
 			});
 
 			res.json(items);
@@ -111,7 +127,9 @@ class TeacherDisciplineGroupController {
 					seminarsWatch: item.seminarsWatch,
 					courseProjectsWatch: item.courseProjectsWatch,
 					intermediateСertificationWatch: item.intermediateСertificationWatch,
-					individualProjectWatch: item.individualProjectWatch
+					individualProjectWatch: item.individualProjectWatch,
+					subgroups: item.subgroups, 
+					isStream: item.isStream
 				});
 
 				udpateMany.push(data);

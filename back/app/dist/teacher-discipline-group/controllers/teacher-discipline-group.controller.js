@@ -42,8 +42,9 @@ class TeacherDisciplineGroupController {
                     const disciplines = yield this.disciplineModel.findById(item.disciplineId).lean();
                     const groups = yield this.groupModel.findById(item.groupId).lean();
                     data.push({
+                        _id: item._id,
                         teachers,
-                        disciplines,
+                        disciplines: Object.assign(Object.assign({}, disciplines), { lecturesWatch: item.lecturesWatch, practicesWatch: item.practicesWatch, laboratoryWatch: item.laboratoryWatch, seminarsWatch: item.seminarsWatch, courseProjectsWatch: item.courseProjectsWatch, intermediateСertificationWatch: item.intermediateСertificationWatch, individualProjectWatch: item.individualProjectWatch, subgroups: item.subgroups, isStream: item.isStream }),
                         groups
                     });
                 }
@@ -58,7 +59,7 @@ class TeacherDisciplineGroupController {
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const { teacherId, disciplineId, groupId, lecturesWatch, practicesWatch, laboratoryWatch, seminarsWatch, courseProjectsWatch, intermediateСertificationWatch, individualProjectWatch } = req.body;
+                const { teacherId, disciplineId, groupId, lecturesWatch, practicesWatch, laboratoryWatch, seminarsWatch, courseProjectsWatch, intermediateСertificationWatch, individualProjectWatch, subgroups, isStream } = req.body;
                 const teachers = yield this.teacherModel.findById(teacherId).lean();
                 const disciplines = yield this.disciplineModel.findById(disciplineId).lean();
                 const groups = yield this.groupModel.findById(groupId).lean();
@@ -75,7 +76,9 @@ class TeacherDisciplineGroupController {
                     seminarsWatch,
                     courseProjectsWatch,
                     intermediateСertificationWatch,
-                    individualProjectWatch
+                    individualProjectWatch,
+                    subgroups,
+                    isStream
                 });
                 res.json(items);
             }
@@ -103,7 +106,9 @@ class TeacherDisciplineGroupController {
                         seminarsWatch: item.seminarsWatch,
                         courseProjectsWatch: item.courseProjectsWatch,
                         intermediateСertificationWatch: item.intermediateСertificationWatch,
-                        individualProjectWatch: item.individualProjectWatch
+                        individualProjectWatch: item.individualProjectWatch,
+                        subgroups: item.subgroups,
+                        isStream: item.isStream
                     });
                     udpateMany.push(data);
                 }

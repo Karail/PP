@@ -45,9 +45,9 @@ class GroupController {
 	@Bind
 	public async create(req: Request, res: Response) {
 		try {
-			const { name, index, course, quantity, subgroups, isStream } = req.body as GroupCreateDto;
+			const { name, index, course, quantity } = req.body as GroupCreateDto;
 
-			const note = await this.groupModel.create({ name, index, course, quantity, subgroups, isStream });
+			const note = await this.groupModel.create({ name, index, course, quantity });
 
 			res.json(note);
 		} catch (ex) {
@@ -58,11 +58,11 @@ class GroupController {
 	@Bind
 	public async edit(req: Request, res: Response) {
 		try {
-			const { name, index, course, quantity, subgroups, isStream } = req.body as GroupCreateDto;
+			const { name, index, course, quantity } = req.body as GroupCreateDto;
 
 			const { id } = req.params;
 
-			const note = await this.groupModel.updateOne({ _id: id }, { name, index, course, quantity, subgroups, isStream });
+			const note = await this.groupModel.updateOne({ _id: id }, { name, index, course, quantity });
 
 			res.json(note);
 		} catch (ex) {

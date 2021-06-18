@@ -9,4 +9,6 @@ export declare class TeacherDisciplineGroupCreateDto {
     courseProjectsWatch: number;
     intermediateСertificationWatch: number;
     individualProjectWatch: number;
+    subgroups: number;
+    isStream: boolean;
 }

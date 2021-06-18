@@ -7,8 +7,6 @@ const GroupSchema = new mongoose_1.Schema({
     index: String,
     course: Number,
     quantity: Number,
-    subgroups: Number,
-    isStream: Boolean,
 });
 exports.Group = mongoose_1.model('Group', GroupSchema);
 //# sourceMappingURL=groups.schema.js.map

@@ -7,8 +7,6 @@ const GroupSchema = new Schema ({
   index: String,
   course: Number,
   quantity: Number,
-  subgroups: Number,
-  isStream: Boolean,
 });
 
 export const Group = model<IGroup & Document>('Group', GroupSchema);

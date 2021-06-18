@@ -3,6 +3,4 @@ export interface IGroup {
     index: string;
     course: number;
     quantity: number;
-    subgroups: number;
-    isStream: boolean;
 }

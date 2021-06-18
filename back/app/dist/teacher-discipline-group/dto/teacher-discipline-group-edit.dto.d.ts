@@ -12,5 +12,7 @@ export declare class TeacherDisciplineGroupEditDto {
         courseProjectsWatch: number;
         intermediateСertificationWatch: number;
         individualProjectWatch: number;
+        subgroups: number;
+        isStream: boolean;
     }[];
 }

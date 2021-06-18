@@ -54,8 +54,8 @@ class GroupController {
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const { name, index, course, quantity, subgroups, isStream } = req.body;
-                const note = yield this.groupModel.create({ name, index, course, quantity, subgroups, isStream });
+                const { name, index, course, quantity } = req.body;
+                const note = yield this.groupModel.create({ name, index, course, quantity });
                 res.json(note);
             }
             catch (ex) {
@@ -67,9 +67,9 @@ class GroupController {
     edit(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const { name, index, course, quantity, subgroups, isStream } = req.body;
+                const { name, index, course, quantity } = req.body;
                 const { id } = req.params;
-                const note = yield this.groupModel.updateOne({ _id: id }, { name, index, course, quantity, subgroups, isStream });
+                const note = yield this.groupModel.updateOne({ _id: id }, { name, index, course, quantity });
                 res.json(note);
             }
             catch (ex) {
