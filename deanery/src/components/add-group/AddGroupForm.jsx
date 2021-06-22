@@ -15,8 +15,6 @@ const validationSchema = Yup.object().shape({
   name: Yup.string().required("Введите название группы"),
   course: Yup.number().required("Введите курс"),
   quantity: Yup.number().required("Введите количество учащихся"),
-  subgroups: Yup.number().required("Введите количество подгрупп"),
-  isStream: Yup.boolean(),
 });
 
 export const AddGroupForm = ({ get }) => {
@@ -32,8 +30,6 @@ export const AddGroupForm = ({ get }) => {
           name: "",
           course: 1,
           quantity: 1,
-            subgroups: 1,
-          isStream: false,
         }}
         onSubmit={(values) => {
           console.log(values);
@@ -74,28 +70,6 @@ export const AddGroupForm = ({ get }) => {
                 onChange={handleChange}
                 error={touched.quantity && Boolean(errors.quantity)}
                 helperText={touched.quantity && errors.quantity}
-              />
-              <TextField
-                fullWidth
-                disabled={values.isStream}
-                name="subgroups"
-                label="Количество подгрупп"
-                value={values.subgroups}
-                onChange={handleChange}
-                error={touched.subgroups && Boolean(errors.subgroups)}
-                helperText={touched.subgroups && errors.subgroups}
-              />
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    value={values.isStream}
-                    onChange={handleChange}
-                    name="isStream"
-                    color="primary"
-                    inputProps={{ "aria-label": "secondary checkbox" }}
-                  />
-                }
-                label="Является потоком"
               />
               <Button
                 className="add-teacher-btn"

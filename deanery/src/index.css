@@ -46,3 +46,11 @@ code {
 .link{
   text-decoration: none;
 }
+
+.table-wrapper{
+  border-bottom: 1px solid #e7e7e7;
+}
+
+.table-item{
+  padding: 5px 10px;
+}

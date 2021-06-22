@@ -37,6 +37,15 @@ export const AddTeacherForm = ({ get }) => {
         {({ errors, touched, isValid, dirty, handleChange, values }) => {
           return (
             <Form>
+                <TextField
+                    fullWidth
+                    name="surname"
+                    label="Фамилия"
+                    value={values.surname}
+                    onChange={handleChange}
+                    error={touched.surname && Boolean(errors.surname)}
+                    helperText={touched.surname && errors.surname}
+                />
               <TextField
                 fullWidth
                 name="name"
@@ -46,15 +55,7 @@ export const AddTeacherForm = ({ get }) => {
                 error={touched.name && Boolean(errors.name)}
                 helperText={touched.name && errors.name}
               />
-              <TextField
-                fullWidth
-                name="surname"
-                label="Фамилия"
-                value={values.surname}
-                onChange={handleChange}
-                error={touched.surname && Boolean(errors.surname)}
-                helperText={touched.surname && errors.surname}
-              />
+
               <TextField
                 fullWidth
                 name="patronymic"

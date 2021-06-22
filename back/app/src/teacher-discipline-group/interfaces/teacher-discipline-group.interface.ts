@@ -1,4 +1,6 @@
 import { Types } from 'mongoose';
+// Enums
+import { IntermediateСertificationEnum } from "../../disciplines/enums";
 
 export interface ITeacherDisciplineGroup {
     teacherId: Types.ObjectId;
@@ -9,8 +11,8 @@ export interface ITeacherDisciplineGroup {
     laboratoryWatch: number;
     seminarsWatch: number;
     courseProjectsWatch: number;
-    intermediateСertificationWatch: number;
-    individualProjectWatch: number;
+    intermediateСertification: IntermediateСertificationEnum;
+    onsultationWatch: number;
     subgroups: number;
     isStream: boolean;
 }

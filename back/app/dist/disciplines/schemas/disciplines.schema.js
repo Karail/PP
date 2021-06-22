@@ -10,8 +10,8 @@ const DisciplineSchema = new mongoose_1.Schema({
     laboratoryWatch: Number,
     seminarsWatch: Number,
     courseProjectsWatch: Number,
-    intermediateСertificationWatch: Number,
-    individualProjectWatch: Number,
+    intermediateСertification: Number,
+    onsultationWatch: Number,
 });
 exports.Discipline = mongoose_1.model('Discipline', DisciplineSchema);
 //# sourceMappingURL=disciplines.schema.js.map

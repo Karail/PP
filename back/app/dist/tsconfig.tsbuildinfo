@@ -561,14 +561,24 @@
         "signature": "2c05680cac201f0caf87597c9cf333b424de0fb1f64ff992625e945c2ac33699",
         "affectsGlobalScope": false
       },
+      "../src/disciplines/enums/intermediate-сertification.enum.ts": {
+        "version": "11766103aa1e81eb654a9ab622f984432f2ac557d1bd6c39997898cd027f643c",
+        "signature": "4687793e6ecdba3318af1b80568fd5f9efccef9e73322764c6195db264f53600",
+        "affectsGlobalScope": false
+      },
+      "../src/disciplines/enums/index.ts": {
+        "version": "f2dc9b65017feb5c7674814a3d38062e808a42e027fd6ce27955606831230c71",
+        "signature": "fba3c29a4313fed645de42389bc890fbdc0d0d3c19db5e714cdb1ea7e6417e5c",
+        "affectsGlobalScope": false
+      },
       "../src/teacher-discipline-group/dto/teacher-discipline-group-create.dto.ts": {
-        "version": "fdd5249017b7e963eebe718e2a464d00babd365d1abbf0d75938a531c32bbfd0",
-        "signature": "908c0d1004436b77a4c838a1f8ba612be8e1965a41a0ed1cb80b5e8ac2ddfca9",
+        "version": "474a6f993e1a6643713b3a022ae6acf299c1281b96e22c6f0f79357c4404623a",
+        "signature": "7b5b08ef5cf28ddc7b34a86ed98d6b5f8ae5faf6b66eb53ad808d80c7c739bb6",
         "affectsGlobalScope": false
       },
       "../src/teacher-discipline-group/dto/teacher-discipline-group-edit.dto.ts": {
-        "version": "9188acdde694174531d45e4bc6d65e9fbd1e0782699c3f1ea74ce681deb7f76d",
-        "signature": "7ea721f8f2e8f1f328760cab1d8968845852aa557e76e1f2313a243a8cb90349",
+        "version": "ab1ee6358828a4ada0eaac41789ff86148d9db2b870044333c5862cb3190cb14",
+        "signature": "0dab67d9b96e1c69fbe52774da3ee88f3579bf0ac61f240a7a76cbd5b9c3c48f",
         "affectsGlobalScope": false
       },
       "../src/teacher-discipline-group/dto/index.ts": {
@@ -577,8 +587,8 @@
         "affectsGlobalScope": false
       },
       "../src/teacher-discipline-group/interfaces/teacher-discipline-group.interface.ts": {
-        "version": "c80e12501fdf4e425d77309dccde85a9acd91af0710240a66ce4262e8a67a9bb",
-        "signature": "fb8d19e9319925ff84b1c5d6a5b012566b1657fd1657dadaa0572069f00671d6",
+        "version": "573c443f4a980b8e396153d0833917da456836e383e8a605a1c9748e0c88b9d3",
+        "signature": "b74e3e26805b93706de941228ff679fffad658a92139ec4c7bdebc73f07d1ee4",
         "affectsGlobalScope": false
       },
       "../src/teacher-discipline-group/interfaces/index.ts": {
@@ -587,7 +597,7 @@
         "affectsGlobalScope": false
       },
       "../src/teacher-discipline-group/schemas/teacher-discipline-group.schema.ts": {
-        "version": "a986e14b1bb856a9574824f0ec44212759ba8cfb71abde4aab1020c952d2f6ea",
+        "version": "98266db72f0439ac092f98644489978cc2e99ffc611ced1eaf93b6c3d0d0f4b7",
         "signature": "7d73f0804612af9a2cfdd48c5d47742352ee21e562dd4cb4e1ec63f799424e9a",
         "affectsGlobalScope": false
       },
@@ -617,8 +627,8 @@
         "affectsGlobalScope": false
       },
       "../src/disciplines/interfaces/disciplines.interface.ts": {
-        "version": "8cd2a878ab98038b314dad1d9de8e491e849e2072a94a78136a6322b847918ab",
-        "signature": "29d997babaffcda372a33bfc99224f4b87b06c42e78e9e8ba86ed6332c3338ec",
+        "version": "f9821cc4feb56aec769726d1692a1c1e69a9a2330996127d5bacde02c81d0f12",
+        "signature": "466a175dc293dbaae292db24d54a1d9225bbd54c200370cef8142629c97657ef",
         "affectsGlobalScope": false
       },
       "../src/disciplines/interfaces/index.ts": {
@@ -627,7 +637,7 @@
         "affectsGlobalScope": false
       },
       "../src/disciplines/schemas/disciplines.schema.ts": {
-        "version": "6a37bd523877a8c74a34d726446f8218ce999f8c84ad15249fcd7fca846982cc",
+        "version": "d8d3aaa086e5cf2c90019ce6e298bda3082d41b4975dfc70c6b3599f6f25f4ff",
         "signature": "f1fa022030742c46d4f904138187b4cee3aff15620c1858abdccd6cb46b7b9f9",
         "affectsGlobalScope": false
       },
@@ -657,7 +667,7 @@
         "affectsGlobalScope": false
       },
       "../src/teacher-discipline-group/controllers/teacher-discipline-group.controller.ts": {
-        "version": "c1c088a813528a323a258fdc046e7aa9969b00b8eda1bf98817140f0b931a6ce",
+        "version": "4e014176da581069ceb5221abd574023b6023dd4885deb588288ec590b7bb67c",
         "signature": "f3f080295e351e418cdf5faeaf87f2b9f18e96ea870e13251b24366768991dbf",
         "affectsGlobalScope": false
       },
@@ -847,8 +857,8 @@
         "affectsGlobalScope": false
       },
       "../src/disciplines/dto/disciplines-create.dto.ts": {
-        "version": "eadd0687b4f363ae2be82ff24b03735498b3f933f8d2ee08b433888ec5a526fd",
-        "signature": "f29c512c7e15ae6549f677f5e9b8371466513ce41d35861d9e38e8e2a99833c6",
+        "version": "e53eb5bd48fd49d96586436972b0a67d79a69b4a1b3a18a16200a336b98c1219",
+        "signature": "93e403b504423368134c12aa3b2079debd056777ac66fe2bb826118e2248e5df",
         "affectsGlobalScope": false
       },
       "../src/disciplines/dto/index.ts": {
@@ -857,7 +867,7 @@
         "affectsGlobalScope": false
       },
       "../src/disciplines/controllers/disciplines.controller.ts": {
-        "version": "d539fa4587981faa4fa4654f386b3cf2a78ba92309def32c127074c35703f572",
+        "version": "c1fe944c2539d625d2e34d6fdfd4a66738cbce6f388e22d8a4a12bacc98e2f7d",
         "signature": "d016f8d5b9a81d1cdae3674b1caf0fe0600c31b6f2493be640839d2a7e90dacc",
         "affectsGlobalScope": false
       },
@@ -1738,16 +1748,27 @@
       ],
       "../src/disciplines/dto/disciplines-create.dto.ts": [
         "../node_modules/@types/mongoose/index.d.ts",
-        "../node_modules/mongoose/index.d.ts"
+        "../node_modules/mongoose/index.d.ts",
+        "../src/disciplines/enums/index.ts"
       ],
       "../src/disciplines/dto/index.ts": [
         "../node_modules/@types/mongoose/index.d.ts",
         "../node_modules/mongoose/index.d.ts",
         "../src/disciplines/dto/disciplines-create.dto.ts"
       ],
-      "../src/disciplines/interfaces/disciplines.interface.ts": [
+      "../src/disciplines/enums/index.ts": [
+        "../node_modules/@types/mongoose/index.d.ts",
+        "../node_modules/mongoose/index.d.ts",
+        "../src/disciplines/enums/intermediate-сertification.enum.ts"
+      ],
+      "../src/disciplines/enums/intermediate-сertification.enum.ts": [
         "../node_modules/@types/mongoose/index.d.ts",
         "../node_modules/mongoose/index.d.ts"
+      ],
+      "../src/disciplines/interfaces/disciplines.interface.ts": [
+        "../node_modules/@types/mongoose/index.d.ts",
+        "../node_modules/mongoose/index.d.ts",
+        "../src/disciplines/enums/index.ts"
       ],
       "../src/disciplines/interfaces/index.ts": [
         "../node_modules/@types/mongoose/index.d.ts",
@@ -1903,6 +1924,7 @@
       "../src/teacher-discipline-group/controllers/teacher-discipline-group.controller.ts": [
         "../node_modules/@types/express/index.d.ts",
         "../node_modules/@types/mongoose/index.d.ts",
+        "../node_modules/@types/node/console.d.ts",
         "../node_modules/moment/ts3.1-typings/moment.d.ts",
         "../node_modules/mongoose/index.d.ts",
         "../src/app.logger.ts",
@@ -1921,11 +1943,13 @@
       ],
       "../src/teacher-discipline-group/dto/teacher-discipline-group-create.dto.ts": [
         "../node_modules/@types/mongoose/index.d.ts",
-        "../node_modules/mongoose/index.d.ts"
+        "../node_modules/mongoose/index.d.ts",
+        "../src/disciplines/enums/index.ts"
       ],
       "../src/teacher-discipline-group/dto/teacher-discipline-group-edit.dto.ts": [
         "../node_modules/@types/mongoose/index.d.ts",
-        "../node_modules/mongoose/index.d.ts"
+        "../node_modules/mongoose/index.d.ts",
+        "../src/disciplines/enums/index.ts"
       ],
       "../src/teacher-discipline-group/interfaces/index.ts": [
         "../node_modules/@types/mongoose/index.d.ts",
@@ -1934,7 +1958,8 @@
       ],
       "../src/teacher-discipline-group/interfaces/teacher-discipline-group.interface.ts": [
         "../node_modules/@types/mongoose/index.d.ts",
-        "../node_modules/mongoose/index.d.ts"
+        "../node_modules/mongoose/index.d.ts",
+        "../src/disciplines/enums/index.ts"
       ],
       "../src/teacher-discipline-group/routes/index.ts": [
         "../node_modules/@types/mongoose/index.d.ts",
@@ -2751,8 +2776,17 @@
       "../src/disciplines/controllers/index.ts": [
         "../src/disciplines/controllers/disciplines.controller.ts"
       ],
+      "../src/disciplines/dto/disciplines-create.dto.ts": [
+        "../src/disciplines/enums/index.ts"
+      ],
       "../src/disciplines/dto/index.ts": [
         "../src/disciplines/dto/disciplines-create.dto.ts"
+      ],
+      "../src/disciplines/enums/index.ts": [
+        "../src/disciplines/enums/intermediate-сertification.enum.ts"
+      ],
+      "../src/disciplines/interfaces/disciplines.interface.ts": [
+        "../src/disciplines/enums/index.ts"
       ],
       "../src/disciplines/interfaces/index.ts": [
         "../src/disciplines/interfaces/disciplines.interface.ts"
@@ -2839,14 +2873,19 @@
         "../src/teacher-discipline-group/dto/teacher-discipline-group-create.dto.ts",
         "../src/teacher-discipline-group/dto/teacher-discipline-group-edit.dto.ts"
       ],
+      "../src/teacher-discipline-group/dto/teacher-discipline-group-create.dto.ts": [
+        "../src/disciplines/enums/index.ts"
+      ],
       "../src/teacher-discipline-group/dto/teacher-discipline-group-edit.dto.ts": [
-        "../node_modules/mongoose/index.d.ts"
+        "../node_modules/mongoose/index.d.ts",
+        "../src/disciplines/enums/index.ts"
       ],
       "../src/teacher-discipline-group/interfaces/index.ts": [
         "../src/teacher-discipline-group/interfaces/teacher-discipline-group.interface.ts"
       ],
       "../src/teacher-discipline-group/interfaces/teacher-discipline-group.interface.ts": [
-        "../node_modules/mongoose/index.d.ts"
+        "../node_modules/mongoose/index.d.ts",
+        "../src/disciplines/enums/index.ts"
       ],
       "../src/teacher-discipline-group/routes/index.ts": [
         "../src/teacher-discipline-group/routes/teacher-discipline-group.route.ts"
@@ -3890,6 +3929,8 @@
       "../src/disciplines/controllers/index.ts",
       "../src/disciplines/dto/disciplines-create.dto.ts",
       "../src/disciplines/dto/index.ts",
+      "../src/disciplines/enums/index.ts",
+      "../src/disciplines/enums/intermediate-сertification.enum.ts",
       "../src/disciplines/interfaces/disciplines.interface.ts",
       "../src/disciplines/interfaces/index.ts",
       "../src/disciplines/routes/disciplines.route.ts",

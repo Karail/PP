@@ -1,3 +1,4 @@
+import { IntermediateСertificationEnum } from "../enums";
 export declare class DisciplineCreateDto {
     name: string;
     index: string;
@@ -6,6 +7,6 @@ export declare class DisciplineCreateDto {
     laboratoryWatch: number;
     seminarsWatch: number;
     courseProjectsWatch: number;
-    intermediateСertificationWatch: number;
-    individualProjectWatch: number;
+    intermediateСertification: IntermediateСertificationEnum;
+    onsultationWatch: number;
 }

@@ -1,5 +1,5 @@
 import { Form, Formik } from "formik";
-import { Button, MenuItem, TextField } from "@material-ui/core";
+import { Button, MenuItem, TextField, Checkbox, FormControlLabel, } from "@material-ui/core";
 import * as Yup from "yup";
 import { backHost } from "../../shared/consts/api.consts";
 import axios from "axios";
@@ -14,8 +14,9 @@ const validationSchema = Yup.object().shape({
   laboratoryWatch: Yup.number().required("Введите количество часов"),
   seminarsWatch: Yup.number().required("Введите количество часов"),
   courseProjectsWatch: Yup.number().required("Введите количество часов"),
-  intermediateСertificationWatch: Yup.number().required("Введите количество часов"),
-  individualProjectWatch: Yup.number().required("Введите количество часов"),
+  onsultationWatch: Yup.number().required("Введите количество часов"),
+  subgroups: Yup.number().required("Введите количество подгрупп"),
+  isStream: Yup.boolean(),
 });
 
 export const AddConnectionForm = ({ teachers, disciplines, groups, get }) => {
@@ -32,14 +33,16 @@ export const AddConnectionForm = ({ teachers, disciplines, groups, get }) => {
       laboratoryWatch: data.laboratoryWatch,
       seminarsWatch: data.seminarsWatch,
       courseProjectsWatch: data.courseProjectsWatch,
-      intermediateСertificationWatch: data.intermediateСertificationWatch,
-      individualProjectWatch: data.individualProjectWatch,
+      intermediateСertification: data.intermediateСertification,
+      onsultationWatch: data.onsultationWatch,
+      subgroups: data.subgroups,
+      isStream: data.isStream,
     });
   }
 
   return (
     <div>
-      <Formik
+      <Formik  
         initialValues={{
           teacher: "",
           discipline: "",
@@ -49,8 +52,10 @@ export const AddConnectionForm = ({ teachers, disciplines, groups, get }) => {
           laboratoryWatch: "0",
           seminarsWatch: "0",
           courseProjectsWatch: "0",
-          intermediateСertificationWatch: "0",
-          individualProjectWatch: "0",
+          intermediateСertification: "",
+          onsultationWatch: "0",
+          subgroups: 1,
+          isStream: false,
         }}
         onSubmit={(values) => {
           addDiscipline(values).then(() => {
@@ -75,7 +80,7 @@ export const AddConnectionForm = ({ teachers, disciplines, groups, get }) => {
                 fullWidth
               >
                 {teachers.map((e) => {
-                  return <MenuItem key={e._id} value={e}>{e.name}</MenuItem>;
+                  return <MenuItem key={e._id} value={e}>{e.surname} {e.name} {e.patronymic}</MenuItem>;
                 })}
               </TextField>
               <TextField
@@ -91,8 +96,8 @@ export const AddConnectionForm = ({ teachers, disciplines, groups, get }) => {
                   setFieldValue('laboratoryWatch', e.target.value.laboratoryWatch || 0)
                   setFieldValue('seminarsWatch', e.target.value.seminarsWatch || 0)
                   setFieldValue('courseProjectsWatch', e.target.value.courseProjectsWatch || 0)
-                  setFieldValue('intermediateСertificationWatch', e.target.value.intermediateСertificationWatch || 0)
-                  setFieldValue('individualProjectWatch', e.target.value.individualProjectWatch || 0)
+                  setFieldValue('intermediateСertification', e.target.value.intermediateСertification || null)
+                  setFieldValue('onsultationWatch', e.target.value.onsultationWatch || 0)
                 }}
                 error={touched.discipline && Boolean(errors.discipline)}
                 helperText={touched.discipline && errors.discipline}
@@ -148,22 +153,29 @@ export const AddConnectionForm = ({ teachers, disciplines, groups, get }) => {
                 helperText={touched.courseProjectsWatch && errors.courseProjectsWatch}
               />
               <TextField
-                fullWidth
-                name="intermediateСertificationWatch"
-                label="Количество часов промежуточной аттестации"
-                value={values.intermediateСertificationWatch}
+                name="intermediateСertification"
+                select
+                disabled
+                label="Тип промежуточной аттестации"
+                value={values.intermediateСertification}
                 onChange={handleChange}
-                error={touched.intermediateСertificationWatch && Boolean(errors.intermediateСertificationWatch)}
-                helperText={touched.intermediateСertificationWatch && errors.intermediateСertificationWatch}
-              />
+                error={touched.intermediateСertification && Boolean(errors.intermediateСertification)}
+                helperText={touched.intermediateСertification && errors.intermediateСertification}
+                fullWidth
+              >
+                <MenuItem key={0} value={0}>Экзамен</MenuItem>
+                <MenuItem key={1} value={1}>Диф. Зачет</MenuItem>
+                <MenuItem key={2} value={2}>Зачет</MenuItem>
+                <MenuItem key={3} value={null}>Нет</MenuItem>
+              </TextField>
               <TextField
                 fullWidth
-                name="individualProjectWatch"
-                label="Количество часов индивидуального проекта"
-                value={values.individualProjectWatch}
+                name="onsultationWatch"
+                label="Количество часов консультаций"
+                value={values.onsultationWatch}
                 onChange={handleChange}
-                error={touched.individualProjectWatch && Boolean(errors.individualProjectWatch)}
-                helperText={touched.individualProjectWatch && errors.individualProjectWatch}
+                error={touched.onsultationWatch && Boolean(errors.onsultationWatch)}
+                helperText={touched.onsultationWatch && errors.onsultationWatch}
               />
               <TextField
                 name="group"
@@ -179,7 +191,28 @@ export const AddConnectionForm = ({ teachers, disciplines, groups, get }) => {
                   return <MenuItem key={e._id} value={e}>{e.name}</MenuItem>;
                 })}
               </TextField>
-
+              <TextField
+                fullWidth
+                disabled={values.isStream}
+                name="subgroups"
+                label="Количество подгрупп"
+                value={values.subgroups}
+                onChange={handleChange}
+                error={touched.subgroups && Boolean(errors.subgroups)}
+                helperText={touched.subgroups && errors.subgroups}
+              />
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    value={values.isStream}
+                    onChange={handleChange}
+                    name="isStream"
+                    color="primary"
+                    inputProps={{ "aria-label": "secondary checkbox" }}
+                  />
+                }
+                label="Является потоком"
+              />
               <Button
                 className="add-teacher-btn"
                 color="primary"

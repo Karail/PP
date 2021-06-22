@@ -54,7 +54,7 @@ class DisciplineController {
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const { name, index, lecturesWatch, practicesWatch, laboratoryWatch, seminarsWatch, courseProjectsWatch, intermediateСertificationWatch, individualProjectWatch } = req.body;
+                const { name, index, lecturesWatch, practicesWatch, laboratoryWatch, seminarsWatch, courseProjectsWatch, intermediateСertification, onsultationWatch } = req.body;
                 const note = yield this.disciplineModel.create({
                     name,
                     index,
@@ -63,8 +63,8 @@ class DisciplineController {
                     laboratoryWatch,
                     seminarsWatch,
                     courseProjectsWatch,
-                    intermediateСertificationWatch,
-                    individualProjectWatch
+                    intermediateСertification,
+                    onsultationWatch
                 });
                 res.json(note);
             }
@@ -77,7 +77,7 @@ class DisciplineController {
     edit(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const { name, index, lecturesWatch, practicesWatch, laboratoryWatch, seminarsWatch, courseProjectsWatch, intermediateСertificationWatch, individualProjectWatch } = req.body;
+                const { name, index, lecturesWatch, practicesWatch, laboratoryWatch, seminarsWatch, courseProjectsWatch, intermediateСertification, onsultationWatch } = req.body;
                 const { id } = req.params;
                 const note = yield this.disciplineModel.updateOne({ _id: id }, {
                     name,
@@ -87,8 +87,8 @@ class DisciplineController {
                     laboratoryWatch,
                     seminarsWatch,
                     courseProjectsWatch,
-                    intermediateСertificationWatch,
-                    individualProjectWatch
+                    intermediateСertification,
+                    onsultationWatch
                 });
                 res.json(note);
             }

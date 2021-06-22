@@ -20,6 +20,7 @@ import { EditDisciplineForm } from "../components/edit/edit-discipline/EditDisci
 import { EditGroupForm } from "../components/edit/edit-group/EditGroupForm";
 import { EditSpecializationForm } from "../components/edit/edit-specialization/EditSpecializationForm";
 import { EditTeacherForm } from "../components/edit/edit-teacher/EditTeacherForm";
+import {TeachList} from "../hoc/TeachList";
 
 export const Routers = () => {
   const [teachers, setTeachers] = useState([]);
@@ -62,6 +63,7 @@ export const Routers = () => {
     return axios.delete(`${backHost}/teacher-discipline-group/delete/${id}`);
   }
 
+
   useEffect(() => {
     get();
   }, []);
@@ -70,10 +72,10 @@ export const Routers = () => {
     <BrowserRouter>
       <Header />
       <Grid className="education-container" container justify={"center"}>
-        <Grid xs={6}>
+        <Grid xs={7}>
           <Switch>
             <Route
-              render={() => <ItemsList
+              render={() => <TeachList
                 title={"Список преподавателей"}
                 items={teachers}
                 path={"/teacher-info"}
@@ -125,14 +127,7 @@ export const Routers = () => {
               path="/disc-list"
             />
             <Route
-              component={ItemsListAcc(
-                "Учет",
-                connections,
-                "/accounting-info",
-                "/accounting-add",
-                delConnections,
-                get
-              )}
+                render={() => <ItemsListAcc title={"Учет"} items={connections} path={ "/accounting-info"} addPath={   "/accounting-add"} delItem={delConnections} get={get}/>}
               exact
               path="/accounting-list"
             />
@@ -176,7 +171,7 @@ export const Routers = () => {
               path="/add-group"
             />
             <Route
-              render={() => <AccountingInfo list={connections} />}
+              render={() => <AccountingInfo list={connections} delItem={delConnections} get={get} />}
               exact
               path="/accounting-info/:id"
             />

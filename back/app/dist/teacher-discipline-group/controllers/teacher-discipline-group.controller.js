@@ -44,8 +44,8 @@ class TeacherDisciplineGroupController {
                     data.push({
                         _id: item._id,
                         teachers,
-                        disciplines: Object.assign(Object.assign({}, disciplines), { lecturesWatch: item.lecturesWatch, practicesWatch: item.practicesWatch, laboratoryWatch: item.laboratoryWatch, seminarsWatch: item.seminarsWatch, courseProjectsWatch: item.courseProjectsWatch, intermediateСertificationWatch: item.intermediateСertificationWatch, individualProjectWatch: item.individualProjectWatch, subgroups: item.subgroups, isStream: item.isStream }),
-                        groups
+                        disciplines: Object.assign(Object.assign({}, disciplines), { lecturesWatch: item.lecturesWatch, practicesWatch: item.practicesWatch, laboratoryWatch: item.laboratoryWatch, seminarsWatch: item.seminarsWatch, courseProjectsWatch: item.courseProjectsWatch, intermediateСertification: item.intermediateСertification, onsultationWatch: item.onsultationWatch }),
+                        groups: Object.assign(Object.assign({}, groups), { subgroups: item.subgroups, isStream: item.isStream })
                     });
                 }
                 res.json(data);
@@ -59,7 +59,7 @@ class TeacherDisciplineGroupController {
     create(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const { teacherId, disciplineId, groupId, lecturesWatch, practicesWatch, laboratoryWatch, seminarsWatch, courseProjectsWatch, intermediateСertificationWatch, individualProjectWatch, subgroups, isStream } = req.body;
+                const { teacherId, disciplineId, groupId, lecturesWatch, practicesWatch, laboratoryWatch, seminarsWatch, courseProjectsWatch, intermediateСertification, onsultationWatch, subgroups, isStream } = req.body;
                 const teachers = yield this.teacherModel.findById(teacherId).lean();
                 const disciplines = yield this.disciplineModel.findById(disciplineId).lean();
                 const groups = yield this.groupModel.findById(groupId).lean();
@@ -75,8 +75,8 @@ class TeacherDisciplineGroupController {
                     laboratoryWatch,
                     seminarsWatch,
                     courseProjectsWatch,
-                    intermediateСertificationWatch,
-                    individualProjectWatch,
+                    intermediateСertification,
+                    onsultationWatch,
                     subgroups,
                     isStream
                 });
@@ -105,14 +105,15 @@ class TeacherDisciplineGroupController {
                         laboratoryWatch: item.laboratoryWatch,
                         seminarsWatch: item.seminarsWatch,
                         courseProjectsWatch: item.courseProjectsWatch,
-                        intermediateСertificationWatch: item.intermediateСertificationWatch,
-                        individualProjectWatch: item.individualProjectWatch,
+                        intermediateСertification: item.intermediateСertification,
+                        onsultationWatch: item.onsultationWatch,
                         subgroups: item.subgroups,
                         isStream: item.isStream
                     });
                     udpateMany.push(data);
                 }
-                res.json(yield Promise.all(udpateMany));
+                const data = yield Promise.all(udpateMany);
+                res.json(data);
             }
             catch (ex) {
                 app_logger_1.logger.error(ex.message);

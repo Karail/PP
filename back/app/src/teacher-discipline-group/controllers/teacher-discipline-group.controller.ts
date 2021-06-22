@@ -11,6 +11,7 @@ import { Discipline } from '../../disciplines/schemas';
 import { Group } from '../../groups/schemas';
 // Logger
 import { logger } from '../../app.logger';
+import { group } from 'node:console';
 
 class TeacherDisciplineGroupController {
 
@@ -44,12 +45,14 @@ class TeacherDisciplineGroupController {
 						laboratoryWatch: item.laboratoryWatch, 
 						seminarsWatch: item.seminarsWatch, 
 						courseProjectsWatch: item.courseProjectsWatch, 
-						intermediateСertificationWatch: item.intermediateСertificationWatch, 
-						individualProjectWatch: item.individualProjectWatch,
+						intermediateСertification: item.intermediateСertification,
+						onsultationWatch: item.onsultationWatch,
+					},
+					groups: {
+						...groups,
 						subgroups: item.subgroups,
 						isStream: item.isStream
-					},
-					groups
+					}
 				})
 			}
 
@@ -71,8 +74,8 @@ class TeacherDisciplineGroupController {
 					laboratoryWatch,
 					seminarsWatch,
 					courseProjectsWatch,
-					intermediateСertificationWatch,
-					individualProjectWatch,
+					intermediateСertification,
+					onsultationWatch,
 					subgroups,
 					isStream } = req.body as TeacherDisciplineGroupCreateDto;
 			
@@ -93,8 +96,8 @@ class TeacherDisciplineGroupController {
 				laboratoryWatch,
 				seminarsWatch,
 				courseProjectsWatch,
-				intermediateСertificationWatch,
-				individualProjectWatch,
+				intermediateСertification,
+				onsultationWatch,
 				subgroups,
 				isStream
 			});
@@ -126,16 +129,17 @@ class TeacherDisciplineGroupController {
 					laboratoryWatch: item.laboratoryWatch,
 					seminarsWatch: item.seminarsWatch,
 					courseProjectsWatch: item.courseProjectsWatch,
-					intermediateСertificationWatch: item.intermediateСertificationWatch,
-					individualProjectWatch: item.individualProjectWatch,
+					intermediateСertification: item.intermediateСertification,
+					onsultationWatch: item.onsultationWatch,
 					subgroups: item.subgroups, 
 					isStream: item.isStream
 				});
 
 				udpateMany.push(data);
 			}
+			const data = await Promise.all(udpateMany);
 
-			res.json(await Promise.all(udpateMany));
+			res.json(data);
 		} catch (ex) {
 			logger.error(ex.message);
 			res.status(500).send(ex);

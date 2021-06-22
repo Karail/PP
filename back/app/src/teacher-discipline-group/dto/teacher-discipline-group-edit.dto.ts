@@ -1,4 +1,6 @@
 import { Types } from "mongoose";
+// Enums
+import { IntermediateСertificationEnum } from "../../disciplines/enums";
 
 export class TeacherDisciplineGroupEditDto {
     items: {
@@ -11,8 +13,8 @@ export class TeacherDisciplineGroupEditDto {
         laboratoryWatch: number;
         seminarsWatch: number;
         courseProjectsWatch: number;
-        intermediateСertificationWatch: number;
-        individualProjectWatch: number;
+        intermediateСertification: IntermediateСertificationEnum;
+        onsultationWatch: number;
         subgroups: number;
         isStream: boolean;
     }[]

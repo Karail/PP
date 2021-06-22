@@ -39,21 +39,21 @@ export const AddSpecializationForm = ({ get }) => {
             <Form>
               <TextField
                 fullWidth
-                name="name"
-                label="Название специальности"
-                value={values.name}
-                onChange={handleChange}
-                error={touched.name && Boolean(errors.name)}
-                helperText={touched.name && errors.name}
-              />
-              <TextField
-                fullWidth
                 name="code"
                 label="Код специальности"
                 value={values.index}
                 onChange={handleChange}
                 error={touched.code && Boolean(errors.code)}
                 helperText={touched.code && errors.code}
+              />
+              <TextField
+                fullWidth
+                name="name"
+                label="Название специальности"
+                value={values.name}
+                onChange={handleChange}
+                error={touched.name && Boolean(errors.name)}
+                helperText={touched.name && errors.name}
               />
               <Button
                 className="add-teacher-btn"

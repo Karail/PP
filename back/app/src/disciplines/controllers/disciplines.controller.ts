@@ -52,8 +52,8 @@ class DisciplineController {
 				laboratoryWatch,
 				seminarsWatch,
 				courseProjectsWatch,
-				intermediateСertificationWatch,
-				individualProjectWatch } = req.body as DisciplineCreateDto;
+				intermediateСertification,
+				onsultationWatch } = req.body as DisciplineCreateDto;
 
 			const note = await this.disciplineModel.create({
 				name,
@@ -63,8 +63,8 @@ class DisciplineController {
 				laboratoryWatch,
 				seminarsWatch,
 				courseProjectsWatch,
-				intermediateСertificationWatch,
-				individualProjectWatch
+				intermediateСertification,
+				onsultationWatch
 			});
 
 			res.json(note);
@@ -83,8 +83,8 @@ class DisciplineController {
 				laboratoryWatch,
 				seminarsWatch,
 				courseProjectsWatch,
-				intermediateСertificationWatch,
-				individualProjectWatch } = req.body as DisciplineCreateDto;
+				intermediateСertification,
+				onsultationWatch } = req.body as DisciplineCreateDto;
 
 			const { id } = req.params;
 
@@ -96,8 +96,8 @@ class DisciplineController {
 				laboratoryWatch,
 				seminarsWatch,
 				courseProjectsWatch,
-				intermediateСertificationWatch,
-				individualProjectWatch
+				intermediateСertification,
+				onsultationWatch
 			});
 
 			res.json(note);

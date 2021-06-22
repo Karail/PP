@@ -10,8 +10,8 @@ const DisciplineSchema = new Schema ({
   laboratoryWatch: Number,
   seminarsWatch: Number,
   courseProjectsWatch: Number,
-  intermediateСertificationWatch: Number,
-  individualProjectWatch: Number,
+  intermediateСertification: Number,
+  onsultationWatch: Number,
 });
 
 export const Discipline = model<IDiscipline & Document>('Discipline', DisciplineSchema);

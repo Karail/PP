@@ -1,3 +1,6 @@
+// Enums
+import { IntermediateСertificationEnum } from "../enums";
+
 export interface IDiscipline {
     name: string;
     index: string;
@@ -6,6 +9,6 @@ export interface IDiscipline {
     laboratoryWatch: number;
     seminarsWatch: number;
     courseProjectsWatch: number;
-    intermediateСertificationWatch: number;
-    individualProjectWatch: number;
+    intermediateСertification: IntermediateСertificationEnum;
+    onsultationWatch: number;
 }

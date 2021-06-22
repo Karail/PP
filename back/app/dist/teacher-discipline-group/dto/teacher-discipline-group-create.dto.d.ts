@@ -1,3 +1,4 @@
+import { IntermediateСertificationEnum } from "../../disciplines/enums";
 export declare class TeacherDisciplineGroupCreateDto {
     teacherId: string;
     disciplineId: string;
@@ -7,8 +8,8 @@ export declare class TeacherDisciplineGroupCreateDto {
     laboratoryWatch: number;
     seminarsWatch: number;
     courseProjectsWatch: number;
-    intermediateСertificationWatch: number;
-    individualProjectWatch: number;
+    intermediateСertification: IntermediateСertificationEnum;
+    onsultationWatch: number;
     subgroups: number;
     isStream: boolean;
 }

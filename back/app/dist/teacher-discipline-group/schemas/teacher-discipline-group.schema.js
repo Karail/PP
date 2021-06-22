@@ -11,8 +11,8 @@ const TeacherDisciplineGroupSchema = new mongoose_1.Schema({
     laboratoryWatch: Number,
     seminarsWatch: Number,
     courseProjectsWatch: Number,
-    intermediateСertificationWatch: Number,
-    individualProjectWatch: Number,
+    intermediateСertification: Number,
+    onsultationWatch: Number,
     subgroups: Number,
     isStream: Boolean,
 });

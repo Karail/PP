@@ -1,5 +1,5 @@
 import { Form, Formik } from "formik";
-import { Button, TextField } from "@material-ui/core";
+import { Button, TextField, MenuItem } from "@material-ui/core";
 import "./style.css";
 import * as Yup from "yup";
 import { backHost } from "../../shared/consts/api.consts";
@@ -14,8 +14,7 @@ const validationSchema = Yup.object().shape({
   laboratoryWatch: Yup.number().required("Введите количество часов"),
   seminarsWatch: Yup.number().required("Введите количество часов"),
   courseProjectsWatch: Yup.number().required("Введите количество часов"),
-  intermediateСertificationWatch: Yup.number().required("Введите количество часов"),
-  individualProjectWatch: Yup.number().required("Введите количество часов"),
+  onsultationWatch: Yup.number().required("Введите количество часов"),
 });
 
 export const AddDisciplineForm = ({ get }) => {
@@ -36,8 +35,8 @@ export const AddDisciplineForm = ({ get }) => {
           laboratoryWatch: "",
           seminarsWatch: "",
           courseProjectsWatch: "",
-          intermediateСertificationWatch: "",
-          individualProjectWatch: "",
+          intermediateСertification: "",
+          onsultationWatch: ""
         }}
         onSubmit={(values) => {
           addDiscipline(values).then(() => {
@@ -117,22 +116,28 @@ export const AddDisciplineForm = ({ get }) => {
                 helperText={touched.courseProjectsWatch && errors.courseProjectsWatch}
               />
               <TextField
-                fullWidth
-                name="intermediateСertificationWatch"
-                label="Количество часов промежуточной аттестации"
-                value={values.intermediateСertificationWatch}
+                name="intermediateСertification"
+                select
+                label="Тип промежуточной аттестации"
+                value={values.intermediateСertification}
                 onChange={handleChange}
-                error={touched.intermediateСertificationWatch && Boolean(errors.intermediateСertificationWatch)}
-                helperText={touched.intermediateСertificationWatch && errors.intermediateСertificationWatch}
-              />
+                error={touched.intermediateСertification && Boolean(errors.intermediateСertification)}
+                helperText={touched.intermediateСertification && errors.intermediateСertification}
+                fullWidth
+              >
+                <MenuItem key={0} value={0}>Экзамен</MenuItem>
+                <MenuItem key={1} value={1}>Диф. Зачет</MenuItem>
+                <MenuItem key={2} value={2}>Зачет</MenuItem>
+                <MenuItem key={3} value={null}>Нет</MenuItem>
+              </TextField>
               <TextField
                 fullWidth
-                name="individualProjectWatch"
-                label="Количество часов индивидуального проекта"
-                value={values.individualProjectWatch}
+                name="onsultationWatch"
+                label="Количество часов консультаций"
+                value={values.onsultationWatch}
                 onChange={handleChange}
-                error={touched.individualProjectWatch && Boolean(errors.individualProjectWatch)}
-                helperText={touched.individualProjectWatch && errors.individualProjectWatch}
+                error={touched.onsultationWatch && Boolean(errors.onsultationWatch)}
+                helperText={touched.onsultationWatch && errors.onsultationWatch}
               />
               <Button
                 className="add-teacher-btn"
