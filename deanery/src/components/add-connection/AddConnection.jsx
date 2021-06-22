@@ -1,5 +1,5 @@
 import { Form, Formik } from "formik";
-import { Button, MenuItem, TextField, Checkbox, FormControlLabel, } from "@material-ui/core";
+import {Button, MenuItem, TextField, Checkbox, FormControlLabel, Grid,} from "@material-ui/core";
 import * as Yup from "yup";
 import { backHost } from "../../shared/consts/api.consts";
 import axios from "axios";
@@ -41,7 +41,7 @@ export const AddConnectionForm = ({ teachers, disciplines, groups, get }) => {
   }
 
   return (
-    <div>
+    <Grid container xs={7}>
       <Formik  
         initialValues={{
           teacher: "",
@@ -67,6 +67,7 @@ export const AddConnectionForm = ({ teachers, disciplines, groups, get }) => {
         validationSchema={validationSchema}
       >
         {({ errors, touched, isValid, dirty, handleChange, values, setFieldValue }) => {
+            console.log(values)
           return (
             <Form>
               <TextField
@@ -155,7 +156,6 @@ export const AddConnectionForm = ({ teachers, disciplines, groups, get }) => {
               <TextField
                 name="intermediateСertification"
                 select
-                disabled
                 label="Тип промежуточной аттестации"
                 value={values.intermediateСertification}
                 onChange={handleChange}
@@ -168,15 +168,16 @@ export const AddConnectionForm = ({ teachers, disciplines, groups, get }) => {
                 <MenuItem key={2} value={2}>Зачет</MenuItem>
                 <MenuItem key={3} value={null}>Нет</MenuItem>
               </TextField>
-              <TextField
-                fullWidth
-                name="onsultationWatch"
-                label="Количество часов консультаций"
-                value={values.onsultationWatch}
-                onChange={handleChange}
-                error={touched.onsultationWatch && Boolean(errors.onsultationWatch)}
-                helperText={touched.onsultationWatch && errors.onsultationWatch}
-              />
+                {values.intermediateСertification === 0 &&    <TextField
+                    fullWidth
+                    name="onsultationWatch"
+                    label="Количество часов консультаций"
+                    value={values.onsultationWatch}
+                    onChange={handleChange}
+                    error={touched.onsultationWatch && Boolean(errors.onsultationWatch)}
+                    helperText={touched.onsultationWatch && errors.onsultationWatch}
+                />}
+
               <TextField
                 name="group"
                 select
@@ -226,6 +227,6 @@ export const AddConnectionForm = ({ teachers, disciplines, groups, get }) => {
           );
         }}
       </Formik>
-    </div>
+    </Grid>
   );
 };

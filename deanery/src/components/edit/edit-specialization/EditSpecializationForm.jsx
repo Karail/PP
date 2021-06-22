@@ -1,5 +1,5 @@
 import { Form, Formik } from "formik";
-import { Button, TextField } from "@material-ui/core";
+import {Button, Grid, TextField} from "@material-ui/core";
 import "./style.css";
 import * as Yup from "yup";
 import { backHost } from "../../../shared/consts/api.consts";
@@ -30,55 +30,60 @@ export const EditSpecializationForm = ({ get, items }) => {
   }).filter(e => e !== undefined)[0]
   console.log(item);
   return (
-    <div>
-      <Formik
-        initialValues={{
-          name: item.name,
-          code: item.code,
-        }}
-        onSubmit={(values) => {
-          editSpecializations(id, values).then(() => {
-            get();
-            alert("Специальность обновлена");
-            history.push("/specialization-list");
-          });
-        }}
-        validationSchema={validationSchema}
-      >
-        {({ errors, touched, isValid, dirty, handleChange, values }) => {
-          return (
-            <Form>
-              <TextField
-                fullWidth
-                name="code"
-                label="Код специальности"
-                value={values.code}
-                onChange={handleChange}
-                error={touched.code && Boolean(errors.code)}
-                helperText={touched.code && errors.code}
-              />
-              <TextField
-                fullWidth
-                name="name"
-                label="Название специальности"
-                value={values.name}
-                onChange={handleChange}
-                error={touched.name && Boolean(errors.name)}
-                helperText={touched.name && errors.name}
-              />
-              <Button
-                className="add-teacher-btn"
-                color="primary"
-                variant="contained"
-                fullWidth
-                type="submit"
-              >
-                Изменить
-              </Button>
-            </Form>
-          );
-        }}
-      </Formik>
-    </div>
+      <Grid container xs={7}>
+        <div style={{
+            width: "100%"
+        }}>
+          <Formik
+              initialValues={{
+                name: item.name,
+                code: item.code,
+              }}
+              onSubmit={(values) => {
+                editSpecializations(id, values).then(() => {
+                  get();
+                  alert("Специальность обновлена");
+                  history.push("/specialization-list");
+                });
+              }}
+              validationSchema={validationSchema}
+          >
+            {({ errors, touched, isValid, dirty, handleChange, values }) => {
+              return (
+                  <Form>
+                    <TextField
+                        fullWidth
+                        name="code"
+                        label="Код специальности"
+                        value={values.code}
+                        onChange={handleChange}
+                        error={touched.code && Boolean(errors.code)}
+                        helperText={touched.code && errors.code}
+                    />
+                    <TextField
+                        fullWidth
+                        name="name"
+                        label="Название специальности"
+                        value={values.name}
+                        onChange={handleChange}
+                        error={touched.name && Boolean(errors.name)}
+                        helperText={touched.name && errors.name}
+                    />
+                    <Button
+                        className="add-teacher-btn"
+                        color="primary"
+                        variant="contained"
+                        fullWidth
+                        type="submit"
+                    >
+                      Изменить
+                    </Button>
+                  </Form>
+              );
+            }}
+          </Formik>
+        </div>
+      </Grid>
+
   );
 };

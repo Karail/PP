@@ -1,5 +1,5 @@
 import { Form, Formik } from "formik";
-import { Button, TextField } from "@material-ui/core";
+import {Button, Grid, TextField} from "@material-ui/core";
 import "./style.css";
 import * as Yup from "yup";
 import { backHost } from "../../shared/consts/api.consts";
@@ -19,55 +19,60 @@ export const AddSpecializationForm = ({ get }) => {
   }
 
   return (
-    <div>
-      <Formik
-        initialValues={{
-          name: "",
-          code: "",
-        }}
-        onSubmit={(values) => {
-          addSpecialization(values).then(() => {
-            get();
-            alert("Специальность добавлена");
-            history.push("/specialization-list");
-          });
-        }}
-        validationSchema={validationSchema}
-      >
-        {({ errors, touched, isValid, dirty, handleChange, values }) => {
-          return (
-            <Form>
-              <TextField
-                fullWidth
-                name="code"
-                label="Код специальности"
-                value={values.index}
-                onChange={handleChange}
-                error={touched.code && Boolean(errors.code)}
-                helperText={touched.code && errors.code}
-              />
-              <TextField
-                fullWidth
-                name="name"
-                label="Название специальности"
-                value={values.name}
-                onChange={handleChange}
-                error={touched.name && Boolean(errors.name)}
-                helperText={touched.name && errors.name}
-              />
-              <Button
-                className="add-teacher-btn"
-                color="primary"
-                variant="contained"
-                fullWidth
-                type="submit"
+      <Grid container xs={7}>
+          <div style={{
+              width: "100%"
+          }}>
+              <Formik
+                  initialValues={{
+                      name: "",
+                      code: "",
+                  }}
+                  onSubmit={(values) => {
+                      addSpecialization(values).then(() => {
+                          get();
+                          alert("Специальность добавлена");
+                          history.push("/specialization-list");
+                      });
+                  }}
+                  validationSchema={validationSchema}
               >
-                Добавить
-              </Button>
-            </Form>
-          );
-        }}
-      </Formik>
-    </div>
+                  {({ errors, touched, isValid, dirty, handleChange, values }) => {
+                      return (
+                          <Form>
+                              <TextField
+                                  fullWidth
+                                  name="code"
+                                  label="Код специальности"
+                                  value={values.index}
+                                  onChange={handleChange}
+                                  error={touched.code && Boolean(errors.code)}
+                                  helperText={touched.code && errors.code}
+                              />
+                              <TextField
+                                  fullWidth
+                                  name="name"
+                                  label="Название специальности"
+                                  value={values.name}
+                                  onChange={handleChange}
+                                  error={touched.name && Boolean(errors.name)}
+                                  helperText={touched.name && errors.name}
+                              />
+                              <Button
+                                  className="add-teacher-btn"
+                                  color="primary"
+                                  variant="contained"
+                                  fullWidth
+                                  type="submit"
+                              >
+                                  Добавить
+                              </Button>
+                          </Form>
+                      );
+                  }}
+              </Formik>
+          </div>
+      </Grid>
+
   );
 };

@@ -76,14 +76,16 @@ export const AccountingInfo = ({ list, delItem, get }) => {
   }
 
   return (
-    <React.Fragment>
+    <div style={{
+      width: "100%"
+    }}>
       <h1>Информация о нагрузке для {acc?.[0]?.teachers?.patronymic} {acc?.[0]?.teachers?.name} {acc?.[0]?.teachers?.surname} <Button onClick={() => {
         if (edit) {
           handleEdit()
         }
         setEdit(!edit)
       }}>{edit ? "Сохранить" : 'Изменить'}</Button></h1>
-      <Grid xs={10}>
+      <Grid xs={11}>
         <Paper square={true} className={'table-wrapper'}>
           <Grid style={{
             alignItems: 'center'
@@ -96,6 +98,7 @@ export const AccountingInfo = ({ list, delItem, get }) => {
             <TableItem width={60} value={'Семинары'} edit={false} />
             <TableItem width={60} value={'Курс. проекты'} edit={false} />
             <TableItem width={60} value={'Тип промежут. аттестации'} edit={false} />
+            <TableItem width={60} value={'Часы промежут. аттестации'} edit={false} />
             <TableItem width={60} value={'Консультации'} edit={false} />
             <TableItem width={60} value={'Кол-во. подгрупп'} edit={false} />
             <TableItem width={60} value={'Поток'} edit={false} />
@@ -106,7 +109,7 @@ export const AccountingInfo = ({ list, delItem, get }) => {
       {aMass.map((el, index) => {
         return (
           <Grid alignItems="center" container justify='space-between'>
-            <Grid xs={10}>
+            <Grid xs={11}>
               <Paper square={true} className={'table-wrapper'}>
                 <Grid style={{
                   alignItems: 'center'
@@ -115,25 +118,43 @@ export const AccountingInfo = ({ list, delItem, get }) => {
                   <TableItem onChange={(value) => editValue(index, 'name', value)} width={150} value={el?.disciplines?.name} edit={false} />
                   <TableItem onChange={(value) => editValue(index, 'lecturesWatch', value)} width={60} value={el?.disciplines?.lecturesWatch} edit={edit} />
                   <TableItem onChange={(value) => editValue(index, 'practicesWatch', value)} width={60} value={el?.disciplines?.practicesWatch} edit={edit} />
-                  <TableItem onChange={(value) => editValue(index, 'laboratoryWatch', value)} width={90} value={el?.disciplines?.laboratoryWatch} edit={edit} />
-                  <TableItem onChange={(value) => editValue(index, 'seminarsWatch', value)} width={60} value={el?.disciplines?.seminarsWatch} edit={edit} />
-                  <TableItem onChange={(value) => editValue(index, 'courseProjectsWatch', value)} width={60} value={el?.disciplines?.courseProjectsWatch} edit={edit} />
+                  <TableItem onChange={(value) => editValue(index, 'laboratoryWatch', value)} width={95} value={el?.disciplines?.laboratoryWatch} edit={edit} />
+                  <TableItem onChange={(value) => editValue(index, 'seminarsWatch', value)} width={62} value={el?.disciplines?.seminarsWatch} edit={edit} />
+                  <TableItem onChange={(value) => editValue(index, 'courseProjectsWatch', value)} width={63} value={el?.disciplines?.courseProjectsWatch} edit={edit} />
 
-                  <TableItem onChange={(value) => editValue(index, 'intermediateСertification', value)} width={60} value={
+                  <TableItem onChange={(value) => editValue(index, 'intermediateСertification', value)} width={67} value={
                     (el?.disciplines?.intermediateСertification == 0) ? "Экзамен" 
                   : (el?.disciplines?.intermediateСertification == 1) ? "Диф. Зачет" 
                   : (el?.disciplines?.intermediateСertification == 2) ? "Зачет" 
                   : "Нет"
                     } edit={false} />
+                  <TableItem width={62} value={
+                   ( () => {
+                      switch (el?.disciplines?.intermediateСertification){
+                        case 0: {
+                          return  Math.floor((el?.groups.quantity * 0.3) * 10) / 10
+                        }
+                        case 1: {
+                          return '1'
+                        }
+                        case 2: {
+                          return '2'
+                        }
+                        default: {
+                          return '0'
+                        }
+                      }
+                    })()
+                  } edit={false} />
 
                   <TableItem onChange={(value) => editValue(index, 'onsultationWatch', value)} width={60} value={el?.disciplines?.onsultationWatch} edit={edit} />
-                  <TableItem onChange={(value) => editValueGroup(index, 'subgroups', value)} width={60} value={el?.groups?.subgroups} edit={edit} />
+                  <TableItem onChange={(value) => editValueGroup(index, 'subgroups', value)} width={38} value={el?.groups?.subgroups} edit={edit} />
                   <TableItemCheckbox onChange={(value) => editValueGroup(index, 'isStream', value)} width={60} value={el?.groups?.isStream} edit={edit} />
                 </Grid>
               </Paper>
             </Grid>
 
-            <Grid xs={2}>
+            <Grid xs={1}>
               <Button style={
                 {
                   marginLeft: 10
@@ -154,6 +175,21 @@ export const AccountingInfo = ({ list, delItem, get }) => {
 
         )
       })}
-    </React.Fragment>
+      <h3>Общее количесво часов: {calcHours(aMass)}</h3>
+    </div>
   );
 };
+
+function calcHours(elems){
+  let totalHours = 0;
+
+  elems.forEach(e => {
+    for (let key in e.disciplines) {
+      if(typeof e.disciplines[key] === "number"){
+        totalHours += e.disciplines[key]
+      }
+    }
+  })
+
+  return totalHours
+}

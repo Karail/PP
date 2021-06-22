@@ -2,7 +2,7 @@ import { Form, Formik } from "formik";
 import {
   Button,
   Checkbox,
-  FormControlLabel,
+  FormControlLabel, Grid,
   TextField,
 } from "@material-ui/core";
 import "./style.css";
@@ -38,90 +38,94 @@ export const EditGroupForm = ({ get, items }) => {
   }).filter(e => e !== undefined)[0]
 
   return (
-    <div>
-      <Formik
-        initialValues={{
-          name: item.name,
-          course: item.course,
-          quantity: item.quantity,
-            subgroups: item.subgroups,
-          isStream: item.isStream,
-        }}
-        onSubmit={(values) => {
-          console.log(values);
-          editGroups(id, values).then(() => {
-            get();
-            alert("Группа обновлена");
-            history.push("/group-list");
-          });
-        }}
-        validationSchema={validationSchema}
-      >
-        {({ errors, touched, isValid, dirty, handleChange, values }) => {
-          return (
-            <Form>
-              <TextField
-                fullWidth
-                name="name"
-                label="Название"
-                value={values.name}
-                onChange={handleChange}
-                error={touched.name && Boolean(errors.name)}
-                helperText={touched.name && errors.name}
-              />
-              <TextField
-                fullWidth
-                name="course"
-                label="Курс"
-                value={values.course}
-                onChange={handleChange}
-                error={touched.course && Boolean(errors.course)}
-                helperText={touched.course && errors.course}
-              />
-              <TextField
-                fullWidth
-                name="quantity"
-                label="Количество учеников"
-                value={values.quantity}
-                onChange={handleChange}
-                error={touched.quantity && Boolean(errors.quantity)}
-                helperText={touched.quantity && errors.quantity}
-              />
-              <TextField
-                fullWidth
-                disabled={values.isStream}
-                name="subgroups"
-                label="Количество подгрупп"
-                value={values.subgroups}
-                onChange={handleChange}
-                error={touched.subgroups && Boolean(errors.subgroups)}
-                helperText={touched.subgroups && errors.subgroups}
-              />
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    value={values.isStream}
-                    onChange={handleChange}
-                    name="isStream"
-                    color="primary"
-                    inputProps={{ "aria-label": "secondary checkbox" }}
-                  />
-                }
-                label="Является потоком"
-              />
-              <Button
-                className="add-teacher-btn"
-                color="primary"
-                variant="contained"
-                fullWidth
-                type="submit"
-              >
-                Изменить
-              </Button>
-            </Form>
-          );
-        }}
-      </Formik>
-    </div>
+      <Grid container xs={7}>
+        <div style={{
+            width: "100%"
+        }}>
+          <Formik
+              initialValues={{
+                name: item.name,
+                course: item.course,
+                quantity: item.quantity,
+                subgroups: item.subgroups,
+                isStream: item.isStream,
+              }}
+              onSubmit={(values) => {
+                console.log(values);
+                editGroups(id, values).then(() => {
+                  get();
+                  alert("Группа обновлена");
+                  history.push("/group-list");
+                });
+              }}
+              validationSchema={validationSchema}
+          >
+            {({ errors, touched, isValid, dirty, handleChange, values }) => {
+              return (
+                  <Form>
+                    <TextField
+                        fullWidth
+                        name="name"
+                        label="Название"
+                        value={values.name}
+                        onChange={handleChange}
+                        error={touched.name && Boolean(errors.name)}
+                        helperText={touched.name && errors.name}
+                    />
+                    <TextField
+                        fullWidth
+                        name="course"
+                        label="Курс"
+                        value={values.course}
+                        onChange={handleChange}
+                        error={touched.course && Boolean(errors.course)}
+                        helperText={touched.course && errors.course}
+                    />
+                    <TextField
+                        fullWidth
+                        name="quantity"
+                        label="Количество учеников"
+                        value={values.quantity}
+                        onChange={handleChange}
+                        error={touched.quantity && Boolean(errors.quantity)}
+                        helperText={touched.quantity && errors.quantity}
+                    />
+                    <TextField
+                        fullWidth
+                        disabled={values.isStream}
+                        name="subgroups"
+                        label="Количество подгрупп"
+                        value={values.subgroups}
+                        onChange={handleChange}
+                        error={touched.subgroups && Boolean(errors.subgroups)}
+                        helperText={touched.subgroups && errors.subgroups}
+                    />
+                    <FormControlLabel
+                        control={
+                          <Checkbox
+                              value={values.isStream}
+                              onChange={handleChange}
+                              name="isStream"
+                              color="primary"
+                              inputProps={{ "aria-label": "secondary checkbox" }}
+                          />
+                        }
+                        label="Является потоком"
+                    />
+                    <Button
+                        className="add-teacher-btn"
+                        color="primary"
+                        variant="contained"
+                        fullWidth
+                        type="submit"
+                    >
+                      Изменить
+                    </Button>
+                  </Form>
+              );
+            }}
+          </Formik>
+        </div>
+      </Grid>
   );
 };

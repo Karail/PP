@@ -17,26 +17,31 @@ export const ItemsListAcc = ({title, items, path, addPath, delItem, get}) => {
 
 
     return (
-      <div>
-        <Grid alignItems="center" container justify="space-between">
-          <h1>{title}</h1>
-          <NavLink className="link" to={addPath} exact>
-            <Button variant="outlined" color="primary" color="primary">
-              <b>Добавить</b>
-            </Button>
-          </NavLink>
+        <Grid container xs={7}>
+          <div style={{
+            width: "100%"
+          }}>
+            <Grid alignItems="center" container justify="space-between">
+              <h1>{title}</h1>
+              <NavLink className="link" to={addPath} exact>
+                <Button variant="outlined" color="primary" color="primary">
+                  <b>Добавить</b>
+                </Button>
+              </NavLink>
+            </Grid>
+
+            {Object.values(acc).map((e, index) => {
+              console.log(e);
+              return (
+                  <Paper onClick={() => { history.push(`${path + '/' + e._id}`)  }} className="list-item">
+                    <Grid container  alignItems="center" justify="space-between">
+                      <p>{e?.surname} {e?.name} {e?.patronymic}</p>
+                    </Grid>
+                  </Paper>
+              );
+            })}
+          </div>
         </Grid>
 
-        {Object.values(acc).map((e, index) => {
-          console.log(e);
-          return (
-              <Paper onClick={() => { history.push(`${path + '/' + e._id}`)  }} className="list-item">
-                <Grid container  alignItems="center" justify="space-between">
-                  <p>{e?.surname} {e?.name} {e?.patronymic}</p>
-                </Grid>
-              </Paper>
-          );
-        })}
-      </div>
     );
 };

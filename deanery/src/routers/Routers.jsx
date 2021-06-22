@@ -72,7 +72,6 @@ export const Routers = () => {
     <BrowserRouter>
       <Header />
       <Grid className="education-container" container justify={"center"}>
-        <Grid xs={7}>
           <Switch>
             <Route
               render={() => <TeachList
@@ -198,7 +197,6 @@ export const Routers = () => {
               path="/teacher-edit/:id"
             />
           </Switch>
-        </Grid>
       </Grid>
     </BrowserRouter>
   );
